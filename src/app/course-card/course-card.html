@@ -1,0 +1,15 @@
+<div class="course-card card text-center w-50 mx-auto mt-4 ">
+    <div class="card-header fs-2">
+        {{ course.courseName }}
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{ course.description }}</h5>
+        <p class="card-text">Duration : {{ course.duration }}</p>
+        <p class="card-text">Fee : ${{ course.fee }}</p>
+        <p class="card-text text-danger" [hidden]="!course.soldOut">Sold Out</p>
+        @if (course.fee < 200){ <p class="card-text text-success">Special Discount Available!</p>
+            }
+            <img [src]="course.img" [alt]="course.courseName" width="50px" class="pe-2">
+            <a href="#" class="btn btn-primary" (click)="viewCourseDetails(course.courseName)">More info</a>
+    </div>
+</div>
